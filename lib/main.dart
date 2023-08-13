@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebasetest2/views/auth/loginPage/login_page.dart';
-import 'package:firebasetest2/views/homePage/HomePage.dart';
+import 'package:firebasetest2/views/splashScreen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -19,16 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot){
-          if(snapshot.hasData){
-            return const HomePage();
-          } else {
-            return const LoginPage();
-          }
-        },
-      ),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: const SplashScreen()
     );
   }
 }
