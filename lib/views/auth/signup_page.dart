@@ -1,9 +1,9 @@
-import 'package:firebasetest2/controllers/signupController/signup_controller.dart';
 import 'package:firebasetest2/controllers/snackBarController/snackBar_controller.dart';
-import 'package:firebasetest2/views/auth/loginPage/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../widgets/roundButton/round_button.dart';
+import '../../controllers/authController/auth_controller.dart';
+import '../../widgets/roundButton/round_button.dart';
+import 'login_page.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -209,7 +209,7 @@ class _SignupPageState extends State<SignupPage> {
                         setState(() {
                           isLoading = true;
                         });
-                        await SignupController.signup(
+                        await AuthController.signup(
                             _emailController.text.trim(),
                             _passwordController.text.trim(),
                             context,

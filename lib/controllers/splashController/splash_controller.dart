@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../../views/auth/authPage/auth_page.dart';
+import '../../views/auth/auth_page.dart';
 
 class SplashController{
   void splashTimer(BuildContext context){

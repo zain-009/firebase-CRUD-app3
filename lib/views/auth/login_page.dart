@@ -1,10 +1,10 @@
-import 'package:firebasetest2/controllers/loginController/login_controller.dart';
-import 'package:firebasetest2/views/auth/phoneLoginPage/phone_login_page.dart';
-import 'package:firebasetest2/views/auth/signupPage/signup_page.dart';
+import 'package:firebasetest2/views/auth/signup_page.dart';
 import 'package:firebasetest2/widgets/roundButton/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../controllers/authController/auth_controller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -117,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                         setState(() {
                           isLoading = true;
                         });
-                        await LoginController.signIn(
+                        await AuthController.signIn(
                             _emailController.text.trim(),
                             _passwordController.text.trim(),
                             context);

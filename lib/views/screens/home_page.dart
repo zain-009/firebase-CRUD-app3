@@ -1,11 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebasetest2/controllers/fetchDataController/fetch_data_controller.dart';
-import 'package:firebasetest2/controllers/logoutController/logout_controller.dart';
+import 'package:firebasetest2/controllers/authController/auth_controller.dart';
 import 'package:firebasetest2/models/userModel/user_model.dart';
-import 'package:firebasetest2/views/postPage/post_page.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../controllers/dataController/data_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<UserModel> getData () async {
-    userModel = await FetchDataController.getUserModelById(FirebaseAuth.instance.currentUser!.uid);
+    userModel = await DataController.getUserModelById(FirebaseAuth.instance.currentUser!.uid);
     return userModel!;
   }
 
@@ -66,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                                 )),
                             TextButton(
                                 onPressed: () {
-                                  LogoutController.logout(context);
+                                  AuthController.logout(context);
                                 },
                                 child: const Text("Yes")),
                           ],
@@ -92,14 +89,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const PostPage()));
-        },
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

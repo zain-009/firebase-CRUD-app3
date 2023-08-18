@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebasetest2/controllers/phoneVerificationController/phone_verification_controller.dart';
 import 'package:firebasetest2/widgets/roundButton/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import '../../controllers/authController/auth_controller.dart';
 
 class PhoneLoginPage extends StatefulWidget {
   const PhoneLoginPage({super.key});
@@ -51,7 +51,7 @@ class _PhoneLoginPageState extends State<PhoneLoginPage> {
                       setState(() {
                         isLoading = true;
                       });
-                      await PhoneVerificationController.verifyPhoneNumber(phoneNumber, context);
+                      await AuthController.verifyPhoneNumber(phoneNumber, context);
                       setState(() {
                         isLoading = false;
                       });

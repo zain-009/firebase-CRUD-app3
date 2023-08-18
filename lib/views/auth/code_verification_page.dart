@@ -1,7 +1,7 @@
-import 'package:firebasetest2/controllers/phoneVerificationController/phone_verification_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import '../../../widgets/roundButton/round_button.dart';
+import '../../controllers/authController/auth_controller.dart';
 
 
 class CodeVerificationPage extends StatefulWidget {
@@ -59,7 +59,7 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
                     setState(() {
                       isLoading = true;
                     });
-                    await PhoneVerificationController.verifyOtp(widget.verificationId, smsCode,context);
+                    await AuthController.verifyOtp(widget.verificationId, smsCode,context);
                     setState(() {
                       isLoading = false;
                     });
