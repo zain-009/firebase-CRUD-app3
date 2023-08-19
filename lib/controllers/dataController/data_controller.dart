@@ -29,8 +29,7 @@ class DataController{
     await firestore.collection('users').doc(uid).get();
 
     if (docSnap.exists) {
-      // print(UserModel.fromMap(docSnap.data() as Map<String, dynamic>));
-      // return UserModel.fromMap(docSnap.data() as Map<String, dynamic>);
+      return UserModel.fromMap(docSnap.data() as Map<String, dynamic>);
     }
   }
 }
