@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasetest2/controllers/storageController/storage_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../controllers/dataController/data_controller.dart';
@@ -63,7 +64,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   ? const Center(child: CircularProgressIndicator())
                   : Row(
                     children: [
-                      const CircleAvatar(radius: 45,child: CircleAvatar(radius: 40,backgroundColor: Colors.black,),),
+                      GestureDetector(
+                          onTap: (){StorageController.pickImage(context);},
+                          child: const CircleAvatar(radius: 45,child: CircleAvatar(radius: 40,backgroundColor: Colors.black,),)),
                       const SizedBox(width: 25,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
