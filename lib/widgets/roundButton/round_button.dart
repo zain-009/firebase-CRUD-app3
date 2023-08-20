@@ -6,7 +6,7 @@ class RoundButton extends StatefulWidget {
   final bool isLoading;
   final String text;
   final Color color;
-  const RoundButton({super.key,required this.text,required this.isLoading,required this.onTap,required this.color});
+  const RoundButton({super.key,required this.text,this.isLoading = false,required this.onTap,required this.color});
 
   @override
   State<RoundButton> createState() => _RoundButtonState();

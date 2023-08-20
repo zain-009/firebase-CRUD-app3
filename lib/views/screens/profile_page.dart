@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest2/controllers/storageController/storage_controller.dart';
+import 'package:firebasetest2/views/screens/edit_profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../controllers/dataController/data_controller.dart';
@@ -43,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
         title: Text(
           "My Profile",
           style: GoogleFonts.quicksand(
-              fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
         leading: IconButton(
             onPressed: () {
@@ -59,28 +60,61 @@ class _ProfilePageState extends State<ProfilePage> {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             children: [
-              const SizedBox(height: 25,),
+              const SizedBox(
+                height: 25,
+              ),
               load
                   ? const Center(child: CircularProgressIndicator())
                   : Row(
-                    children: [
-                      GestureDetector(
-                          onTap: (){StorageController.pickImage(context);},
-                          child: const CircleAvatar(radius: 45,child: CircleAvatar(radius: 40,backgroundColor: Colors.black,),)),
-                      const SizedBox(width: 25,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("${userModel!.firstName} ${userModel!.lastName}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                          Text(userModel!.email,style: const TextStyle(fontSize: 16),),
-                          ElevatedButton(onPressed: (){},style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple, // Background color
-                          ), child: const Text("Edit Profile"),),
-                        ],
-                      ),
-                    ],
-                  ),
-
+                      children: [
+                        GestureDetector(
+                            onTap: () {
+                              StorageController.pickImage(context);
+                            },
+                            child: const CircleAvatar(
+                              radius: 45,
+                              child: CircleAvatar(
+                                radius: 40,
+                                backgroundColor: Colors.black,
+                              ),
+                            )),
+                        const SizedBox(
+                          width: 25,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "${userModel!.firstName} ${userModel!.lastName}",
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              userModel!.email,
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => EditProfilePage(
+                                              firstname: userModel!.firstName,
+                                              lastName: userModel!.lastName,
+                                              age: userModel!.age,
+                                              email: userModel!.email,
+                                            )));
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Colors.deepPurple, // Background color
+                              ),
+                              child: const Text("Edit Profile"),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
             ],
           ),
         ),

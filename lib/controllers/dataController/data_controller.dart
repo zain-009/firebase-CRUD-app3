@@ -32,4 +32,18 @@ class DataController{
       return UserModel.fromMap(docSnap.data() as Map<String, dynamic>);
     }
   }
+  //------------update-data--------------------------------------------
+  Future<void> updateUserDetails (BuildContext context,String firstName, String lastName, int age,
+      String email) async {
+    try{
+      UserModel userModel = UserModel(
+          firstName: firstName,
+          lastName: lastName,
+          age: age,
+          email: email, uid: '');
+    } catch (e){
+      SnackBarController.showSnackBar(context, e.toString());
+    }
+    //await FirebaseFirestore.instance.collection('users').doc(user.uid).update(user.toJson());
+  }
 }

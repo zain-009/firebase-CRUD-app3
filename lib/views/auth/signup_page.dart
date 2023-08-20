@@ -26,8 +26,12 @@ class _SignupPageState extends State<SignupPage> {
   @override
   void dispose() {
     super.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _ageController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
   }
 
   @override
@@ -137,9 +141,7 @@ class _SignupPageState extends State<SignupPage> {
                   textInputAction: TextInputAction.next,
                   obscureText: isObscure,
                   validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your password';
-                    } else if (value.length < 6) {
+                    if (value != null && value.length < 6) {
                       return 'Password must be at least 6 characters';
                     }
                     return null;
@@ -169,9 +171,7 @@ class _SignupPageState extends State<SignupPage> {
                   textInputAction: TextInputAction.next,
                   obscureText: isObscure,
                   validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your password';
-                    } else if (value.length < 6) {
+                    if (value != null && value.length < 6) {
                       return 'Password must be at least 6 characters';
                     }
                     return null;
