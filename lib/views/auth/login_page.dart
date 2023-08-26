@@ -153,13 +153,6 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  // RoundButton(
-                  //   text: "Login with Phone Number",
-                  //   color: Colors.grey,
-                  //   onTap: () {
-                  //     Navigator.push(context, MaterialPageRoute(builder: (context) => const PhoneLoginPage()));
-                  //   },
-                  // ),
                   ElevatedButton(
                     onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const PhoneLoginPage()));},
                     style: ButtonStyle(
@@ -180,7 +173,6 @@ class _LoginPageState extends State<LoginPage> {
                     )
                         : Text("Login with Phone Number",style: GoogleFonts.quicksand(fontSize: 18,fontWeight: FontWeight.bold),),
                   )
-
                 ],
               ),
             ),

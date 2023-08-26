@@ -125,5 +125,5 @@ class AuthController {
       SnackBarController.showSnackBar(context, e.toString());
     }
   }
-//---------hvhvh-----------------------------
+//---------none-----------------------------
 }
