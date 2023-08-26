@@ -1,3 +1,4 @@
+import 'package:firebasetest2/views/auth/phone_login_page.dart';
 import 'package:firebasetest2/views/auth/signup_page.dart';
 import 'package:firebasetest2/widgets/roundButton/round_button.dart';
 import 'package:flutter/material.dart';
@@ -160,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                   //   },
                   // ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const PhoneLoginPage()));},
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
